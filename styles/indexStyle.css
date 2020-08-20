@@ -136,7 +136,7 @@ html,body {
 
 #intro {
     width: 100vw;
-    height: calc(100vh - 95px);
+    height: calc(100vh - 80px);
 }
 
 #intro-content {
@@ -149,7 +149,7 @@ html,body {
     margin: unset;
 }
 
-#intro img {
+#intro-img {
     width: 70%;
     max-width: 100%;
     min-width: 300px;
@@ -183,6 +183,7 @@ html,body {
     font-weight: 200;
     padding: 0 5vw 0 5vw;
     background-color: #FDFDFD;
+    padding-bottom: 600px;
 }
 
 #separators {
@@ -212,6 +213,10 @@ html,body {
     font-size: 50px;
 }
 
+#bounce-arrow {
+    display: none;
+}
+
 /* -----------> DESKTOP <------------ */
 @media only screen and (min-width: 700px) {
 
@@ -238,6 +243,22 @@ html,body {
         display: inline-block;
         right: unset;
         top: unset;
+    }
+
+    #bounce-arrow {
+        display: block;
+        width: 40px;
+        height: 40px;
+        animation: bounce 3s infinite;
+        flex-grow: 0;
+    }
+
+    #bounce-arrow > svg {
+        width: 40px;
+        height: 40px;
+        opacity: 70%;
+        /* fill: #a48b41; */
+        fill: #a88c3a;
     }
 
     .nav-item:first-child {
@@ -273,7 +294,7 @@ html,body {
 
     #container {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
     }
 
@@ -281,24 +302,26 @@ html,body {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        height: calc(100vh - 150px);
     }
 
     #intro-content {
-        width: auto;
+        flex-grow: 1;
+        justify-content: center;
     }
 
-    #intro img {
-        position: absolute;
-        width: 45%;
-        /* max-width: 85vh; */
-        right: 19vw;
-        margin-top: 3vw;
+    #intro-img {
+        width: 45vw;
+        margin-top: 5vh;
+        margin-bottom: 15vh;
+        margin-left: 16.5vw;
     }
 
     #author {
         text-align: left;
-        right: 59vw;
-        margin-top: 10vw;
+        right: 59.3vw;
+        margin-top: -15vh;
         position: absolute;
         z-index: 2;
         font-size: min(5vw, 80px);
@@ -308,4 +331,31 @@ html,body {
     #author p:last-child {
         margin-left: 2vw;
     }
+
+    #separators {
+        padding: 5vh 0 5vh 0;
+    }
+
+    #about-me {
+        width: 60vw;
+        padding-bottom: 200px;
+    }
+
+    #about-me img {
+        width: 20vw;
+        max-width: 280px;
+        padding: 7px 3vw 15px 0;
+    }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
