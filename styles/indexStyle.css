@@ -126,6 +126,7 @@ html,body {
     display: table;
     float: right;
     clear: right;
+    cursor: pointer;
 }
 
 #container {
@@ -165,6 +166,7 @@ html,body {
     font-family: 'Playfair Display', serif;
     color: #0F0F0F;
     letter-spacing: -4px;
+    font-size: 60px;
 }
 
 #author {
@@ -186,7 +188,7 @@ html,body {
     padding-bottom: 600px;
 }
 
-#separators {
+.separators {
     display: block;
     padding: 10vw 0 10vw 0;
 }
@@ -195,6 +197,29 @@ html,body {
     width: 50vw;
     height: 100px;
     display: inline-block;
+}
+
+#collection {
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 10vh;
+}
+
+#collection-preview {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2.5vw 0 2.5vw 0;
+}
+
+.preview-pic {
+    width: 45%;
+    height: 30vw;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    margin: 1.25vw;
+    cursor: pointer;
 }
 
 #about-me img {
@@ -209,12 +234,9 @@ html,body {
     text-indent: 40px;
 }
 
-#about-me-txt {
-    font-size: 50px;
-}
-
 #bounce-arrow {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
 }
 
 /* -----------> DESKTOP <------------ */
@@ -246,7 +268,8 @@ html,body {
     }
 
     #bounce-arrow {
-        display: block;
+        visibility: visible;
+        opacity: 1;
         width: 40px;
         height: 40px;
         animation: bounce 3s infinite;
@@ -332,12 +355,27 @@ html,body {
         margin-left: 2vw;
     }
 
-    #separators {
+    .separators {
         padding: 5vh 0 5vh 0;
     }
 
+    #collection {
+        width: 100vw;
+    }
+
+    #collection-preview {
+        max-width: 1000px;
+        margin: 0 auto 0 auto;
+    }
+
+    .preview-pic {
+        width: 30%;
+        height: auto;
+        margin: 0.5vw;
+    }
+
     #about-me {
-        width: 60vw;
+        max-width: 1000px;
         padding-bottom: 200px;
     }
 

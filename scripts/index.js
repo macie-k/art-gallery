@@ -3,6 +3,8 @@ var subnav_animated = false;
 var initial_scrolled;
 
 $(document).ready(function(){
+    $('#bounce-arrow').data('is-hidden', false);
+
     if($(window).scrollTop() < "50") {
         initial_scrolled = false;
     } else {
@@ -23,30 +25,31 @@ $(window).resize(function(){
     if(isDesktop()) {
         $('#intro-content').height($('#intro-img').height() + 200);
     } else {
-        $('#bounce-arrow').hide();
+        $('#bounce-arrow').css('visibillity', 'hidden');
     }
 })
 
-$(window).scroll(function(){
+$(window).scroll(function(e){
     if(!isDesktop()) {
         if($(window).scrollTop() < "50") {
             initial_scrolled = false;
         }
-        if(isVisible('#separators', -100) && !initial_scrolled) {
+        if(isVisible('#collection-txt', 200) && !initial_scrolled) {
             $('html').animate({
-                scrollTop: $('#about-me-txt').offset().top - 50
+                scrollTop: $('#collection-txt').offset().top - 50
             }, 500, 'swing');
             initial_scrolled = true;
         }
     } else {
-        if($(window).scrollTop() < "100") {
-            $('#bounce-arrow').fadeIn(500);
-        } else {
-            if($('#bounce-arrow').is(":visible")) {
-                $('#bounce-arrow').fadeOut(500);
-            }
-        }
+        const arrow = $('#bounce-arrow');
 
+        if(arrow.data('is-hidden') === true && $(window).scrollTop() === 0) {
+          arrow.data('is-hidden', false);
+          arrow.animate({ opacity: 1 });
+        } else if(arrow.data('is-hidden') === false) {
+          arrow.data('is-hidden', true)
+          arrow.animate({ opacity: 0 });
+        }
     }
 });
 
@@ -106,4 +109,8 @@ function isDesktop() {
 /* disable dragging */
 $('img').on('dragstart', function(event) {
     event.preventDefault();
+});
+
+$(document).ready(function() {
+  document.head.appendChild(document.createComment(" Created by Maciej Kaźmierczyk ~ @macie.k "));
 });
