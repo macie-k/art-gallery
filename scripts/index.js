@@ -1,14 +1,15 @@
 var subnav_active = false;
 var subnav_animated = false;
-var initial_scrolled;
+var menu_scroll = false;
+var initial_scroll = false;
 
 $(document).ready(function(){
     $('#bounce-arrow').data('is-hidden', false);
 
     if($(window).scrollTop() < "50") {
-        initial_scrolled = false;
+        initial_scroll = false;
     } else {
-        initial_scrolled = true;
+        initial_scroll = true;
     }
     if(isDesktop()) {
         $('#intro-content').height($('#intro img').height() + 200);
@@ -29,16 +30,17 @@ $(window).resize(function(){
     }
 })
 
-$(window).scroll(function(e){
+$(window).scroll(function(){
     if(!isDesktop()) {
         if($(window).scrollTop() < "50") {
-            initial_scrolled = false;
+            initial_scroll = false;
         }
-        if(isVisible('#collection-txt', 200) && !initial_scrolled) {
-            $('html').animate({
-                scrollTop: $('#collection-txt').offset().top - 50
-            }, 500, 'swing');
-            initial_scrolled = true;
+        if(isVisible('#collection-txt', 200) && !initial_scroll) {
+            if(!menu_scroll) {
+                $('html').stop(true, false).animate({
+                    scrollTop: $('#collection-txt').offset().top - 50
+                }, 500, 'swing');
+            } initial_scroll = true;
         }
     } else {
         const arrow = $('#bounce-arrow');
@@ -53,7 +55,6 @@ $(window).scroll(function(e){
     }
 });
 
-
 const subnav = $('#subnav');
 const subnav_items = $('.nav-item');
 
@@ -64,6 +65,31 @@ $('.dropdown-menu').click(function() {
     } else {
         if(!subnav_animated) hideSubnav(0);
     }
+});
+
+$('.nav-item').click(function() {
+    menu_scroll = true;  initial_scroll = true;
+
+    switch ($(this).attr("id")) {
+        case "collection-a":
+            $('html').animate({
+                scrollTop: $('#collection-txt').offset().top - 50
+            }, 500, 'swing').promise().done(function(){
+                console.log('cumm');
+                menu_scroll = false;
+            });
+            break;
+        case "about-me-a":
+            $('html').animate({
+                scrollTop: $('#about-me-txt').offset().top - 50
+            }, 500, 'swing').promise().done(function(){
+                 menu_scroll = false;
+            });
+            break;
+        case "contact-a":
+            $('html').animate({ scrollTop: $('#about-me-txt').offset().top - 50 }, 500, 'swing');
+            break;
+    } hideSubnav(100);
 });
 
 /* show menu */

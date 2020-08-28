@@ -3,6 +3,15 @@
     src: url("fonts/DroidSerif-Regular.ttf");
 }
 
+:root {
+    --bg-color: #FDFDFD;
+    --text-color: #0F0F0F;
+    --accent-color: #B89D4F;
+
+    --title-font: 'Playfair Display', serif;
+    --sub-font: 'Poppins', sans-serif;
+}
+
 * {
   -ms-overflow-style: none;
   user-select: none;
@@ -24,21 +33,21 @@ html,body {
     margin: 0;
     padding: 0;
     color: #2F2F2F;
-    background-color: #FDFDFD;
+    background-color: var(--bg-color);
 }
 
 #content {
     z-index: -100;
     opacity: 0;
     height: 100%;
-    background-color: #FDFDFD;
+    background-color: var(--bg-color);
 }
 
 #navbar {
     display: inline-flex;
     width: 100vw;
     height: 80px;
-    background-color: #FDFDFD;
+    background-color: var(--bg-color);
 }
 
 #menu {
@@ -67,7 +76,7 @@ html,body {
     width: 100vw;
     height: auto;
     display: inline-flex;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--title-font);
     font-weight: 700;
     font-size: 35px;
     margin-left: 10vw;
@@ -120,7 +129,7 @@ html,body {
     position: relative;
     font-size: 12px;
     margin-bottom: 10px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--sub-font);
     font-weight: 200;
     right: -100px;
     display: table;
@@ -163,25 +172,24 @@ html,body {
 .title {
     text-align: center;
     font-weight: 400;
-    font-family: 'Playfair Display', serif;
-    color: #0F0F0F;
+    font-family: var(--title-font);
+    color: var(--text-color);
     letter-spacing: -4px;
     font-size: 60px;
 }
 
 #author {
     margin-top: 50px;
-    /* font-size: 50px; */
     font-size: 13vw;
 }
 
 .separator:last-child {
-    border-left: 1px solid #b89d4f;
+    border-left: 1px solid var(--accent-color);
 }
 
 #about-me {
     width: 100vw;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--sub-font);
     font-weight: 200;
     padding: 0 5vw 0 5vw;
     background-color: #FDFDFD;
@@ -201,8 +209,17 @@ html,body {
 
 #collection {
     width: 100%;
-    justify-content: center;
-    padding-bottom: 10vh;
+    align-items: center;
+    padding-bottom: calc(10vh - 20px);
+    display: flex;
+    flex-direction: column;
+}
+
+#preview-wrap {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 #collection-preview {
@@ -220,6 +237,31 @@ html,body {
     border-radius: 10px;
     margin: 1.25vw;
     cursor: pointer;
+}
+
+#collection-more {
+    width: 170px;
+    height: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px 0 20px 0;
+    border: 1px solid var(--accent-color);
+    cursor: pointer;
+
+    color: var(--accent-color);
+    font-family: var(--sub-font);
+    font-weight: 100;
+    font-size: 15px;
+
+    transition: .5s all;
+}
+
+#collection-more:hover {
+    background-color: var(--accent-color);
+    color: white;
 }
 
 #about-me img {
@@ -280,8 +322,7 @@ html,body {
         width: 40px;
         height: 40px;
         opacity: 70%;
-        /* fill: #a48b41; */
-        fill: #a88c3a;
+        fill: var(--accent-color);
     }
 
     .nav-item:first-child {
@@ -365,7 +406,6 @@ html,body {
 
     #collection-preview {
         max-width: 1000px;
-        margin: 0 auto 0 auto;
     }
 
     .preview-pic {
