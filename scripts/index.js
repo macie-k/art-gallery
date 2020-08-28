@@ -75,21 +75,20 @@ $('.nav-item').click(function() {
             $('html').animate({
                 scrollTop: $('#collection-txt').offset().top - 50
             }, 500, 'swing').promise().done(function(){
-                console.log('cumm');
                 menu_scroll = false;
             });
             break;
         case "about-me-a":
             $('html').animate({
                 scrollTop: $('#about-me-txt').offset().top - 50
-            }, 500, 'swing').promise().done(function(){
+            }, 700, 'swing').promise().done(function(){
                  menu_scroll = false;
             });
             break;
         case "contact-a":
             $('html').animate({ scrollTop: $('#about-me-txt').offset().top - 50 }, 500, 'swing');
             break;
-    } hideSubnav(100);
+    } if(!isDesktop()) hideSubnav();
 });
 
 /* show menu */
