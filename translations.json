@@ -1,0 +1,87 @@
+{
+    "pl": {
+        "title-bar": "&mdash; Galeria Sztuki",
+        "title": "Galeria Sztuki",
+
+        "menu-collection": "kolekcja",
+        "menu-author": "o autorze",
+        "menu-contact": "kontakt",
+
+        "author-subtext": "Obrazy",
+
+        "collection-txt": "Kolekcja",
+        "collection-full": "Pełna kolekcja",
+
+        "about-author-txt": "O&nbsp;&nbsp;autorze",
+        "about-author-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, nunc et dictum efficitur, metus arcu tempor dui, eget pretium ipsum enim nec metus. Donec enim nulla, venenatis eget ipsum et, bibendum ullamcorper magna. Aenean eu sapien id enim mollis ornare. Aenean id bibendum leo. Nam sed tincidunt lacus, ac dignissim nulla. Duis arcu sapien, scelerisque eget dapibus quis, lobortis et augue. Praesent porta ex eu orci tincidunt, venenatis gravida erat tincidunt. Fusce ut rhoncus sem. Aenean sed feugiat nibh. Quisque vitae ornare turpis. Nunc convallis purus tortor, et aliquet leo vestibulum sed.",
+        "about-author-2": "Vestibulum commodo viverra cursus. Donec accumsan arcu mattis, sollicitudin nulla et, fringilla turpis. Nam lacinia dictum lacinia. Donec eu justo elit. Nunc pulvinar metus lobortis, venenatis ex quis, interdum sapien. Sed aliquet libero ac augue egestas fringilla. Suspendisse euismod dolor nibh, eu sodales orci sodales eget. Ut est sapien, finibus eget sapien vel, ultricies pellentesque magna. Donec sed massa orci. Nunc non vulputate odio. Nulla facilisi. Duis euismod odio turpis, ac faucibus tortor tristique a. Donec elementum in diam at ornare. Morbi varius mi orci, non hendrerit massa mattis id.",
+
+        "web-contents-txt": "Wystawy",
+        "article-date-1": "CZERWIEC 2019",
+        "article-date-2": "STYCZEN 2018",
+        "article-date-3": "GRUDZIEŃ 2015",
+        "article-date-4": "LIPIEC 2017",
+        "article-date-5": "CZERWIEC 2017",
+        "article-date-6": "CZERWIEC 2019",
+        "article-date-7": "CZERWIEC 2017",
+        "article-date-8": "SIERPIEŃ 2020",
+        "article-date-9": "MAJ 2019"
+    },
+    "en": {
+        "title-bar": "&mdash; Art Gallery",
+        "title": "Art Gallery",
+
+        "menu-collection": "collection",
+        "menu-author": "about author",
+        "menu-contact": "contact",
+
+        "author-subtext": "Paintings",
+
+        "collection-txt": "Collection",
+        "collection-full": "Full collection",
+
+        "about-author-txt": "About&nbsp;&nbsp;the&nbsp;&nbsp;author",
+        "about-author-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, nunc et dictum efficitur, metus arcu tempor dui, eget pretium ipsum enim nec metus. Donec enim nulla, venenatis eget ipsum et, bibendum ullamcorper magna. Aenean eu sapien id enim mollis ornare. Aenean id bibendum leo. Nam sed tincidunt lacus, ac dignissim nulla. Duis arcu sapien, scelerisque eget dapibus quis, lobortis et augue. Praesent porta ex eu orci tincidunt, venenatis gravida erat tincidunt. Fusce ut rhoncus sem. Aenean sed feugiat nibh. Quisque vitae ornare turpis. Nunc convallis purus tortor, et aliquet leo vestibulum sed.",
+        "about-author-2": "Vestibulum commodo viverra cursus. Donec accumsan arcu mattis, sollicitudin nulla et, fringilla turpis. Nam lacinia dictum lacinia. Donec eu justo elit. Nunc pulvinar metus lobortis, venenatis ex quis, interdum sapien. Sed aliquet libero ac augue egestas fringilla. Suspendisse euismod dolor nibh, eu sodales orci sodales eget. Ut est sapien, finibus eget sapien vel, ultricies pellentesque magna. Donec sed massa orci. Nunc non vulputate odio. Nulla facilisi. Duis euismod odio turpis, ac faucibus tortor tristique a. Donec elementum in diam at ornare. Morbi varius mi orci, non hendrerit massa mattis id.",
+  
+        "web-contents-txt": "Exhibitions",
+        "article-date-1": "JUNE 2019",
+        "article-date-2": "JANUARY 2018",
+        "article-date-3": "DECEMBER 2015",
+        "article-date-4": "JULY 2017",
+        "article-date-5": "JUNE 2017",
+        "article-date-6": "JUNE 2019",
+        "article-date-7": "JUNE 2017",
+        "article-date-8": "AUGUST 2020",
+        "article-date-9": "MAY 2019"
+
+    },
+    "de": {
+        "title-bar": "&mdash; Kunstgallerie",
+        "title": "Kunstgalerie",
+
+        "menu-collection": "Die Sammlung",
+        "menu-author": "Über den Autor",
+        "menu-contact": "kontakt",
+
+        "author-subtext": "Gemälde",
+
+        "collection-txt": "Die&nbsp;&nbsp;Sammlung",
+        "collection-full": "Ganze Sammlung",
+
+        "about-author-txt": "Über&nbsp;&nbsp;den&nbsp;&nbsp;Autor",
+        "about-author-1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed varius, nunc et dictum efficitur, metus arcu tempor dui, eget pretium ipsum enim nec metus. Donec enim nulla, venenatis eget ipsum et, bibendum ullamcorper magna. Aenean eu sapien id enim mollis ornare. Aenean id bibendum leo. Nam sed tincidunt lacus, ac dignissim nulla. Duis arcu sapien, scelerisque eget dapibus quis, lobortis et augue. Praesent porta ex eu orci tincidunt, venenatis gravida erat tincidunt. Fusce ut rhoncus sem. Aenean sed feugiat nibh. Quisque vitae ornare turpis. Nunc convallis purus tortor, et aliquet leo vestibulum sed.",
+        "about-author-2": "Vestibulum commodo viverra cursus. Donec accumsan arcu mattis, sollicitudin nulla et, fringilla turpis. Nam lacinia dictum lacinia. Donec eu justo elit. Nunc pulvinar metus lobortis, venenatis ex quis, interdum sapien. Sed aliquet libero ac augue egestas fringilla. Suspendisse euismod dolor nibh, eu sodales orci sodales eget. Ut est sapien, finibus eget sapien vel, ultricies pellentesque magna. Donec sed massa orci. Nunc non vulputate odio. Nulla facilisi. Duis euismod odio turpis, ac faucibus tortor tristique a. Donec elementum in diam at ornare. Morbi varius mi orci, non hendrerit massa mattis id.",
+
+        "web-contents-txt": "Ausstellungen",
+        "article-date-1": "JUNI 2019",
+        "article-date-2": "JANUAR 2018",
+        "article-date-3": "DEZEMBER 2015",
+        "article-date-4": "JULI 2017",
+        "article-date-5": "JUNI 2017",
+        "article-date-6": "JUNI 2019",
+        "article-date-7": "JUNI 2017",
+        "article-date-8": "AUGUST 2020",
+        "article-date-9": "MAI 2019"
+    }
+  }
