@@ -3,10 +3,6 @@
     src: url("fonts/DroidSerif-Regular.ttf");
 }
 
-/* .lang {
-    display: none;
-} */
-
 :root {
     --bg-color: #F5F5F5;
     --text-color: #0F0F0F;
@@ -50,7 +46,7 @@ html,body {
     font-family: var(--title-font);
     color: var(--text-color);
     letter-spacing: -4px;
-    font-size: 80px;
+    font-size: 60px;
 }
 
 #content {
@@ -95,7 +91,7 @@ html,body {
     display: inline-flex;
     font-family: var(--title-font);
     font-weight: 700;
-    font-size: 35px;
+    font-size: min(35px, 7vw);
     margin-left: 10vw;
     align-items: center;
 }
@@ -168,6 +164,7 @@ html,body {
     align-items: center;
     width: 90px;
     margin-right: -5px;
+    right: -130px;
 }
 
 .flag {
@@ -194,6 +191,8 @@ html,body {
 #intro {
     width: 100vw;
     height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
 }
 
 #intro-content {
@@ -224,9 +223,22 @@ html,body {
 }
 
 #bounce-arrow {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 1;
+    visibility: visible;
     cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
+    flex-grow: 0;
+    bottom: 0;
+    animation: bounce 3s infinite;
+}
+
+#bounce-arrow > svg {
+    width: 40px;
+    height: 40px;
+    opacity: 70%;
+    fill: var(--accent-color);
 }
 
 .separator:last-child {
@@ -316,7 +328,7 @@ html,body {
     /* margin: 0 5vw 3vh 5vw; */  /* margin 5vw because #about-me has 5vw */
     width: 15vw;
     min-width: 220px;
-    padding: 0 2vw 0 0;
+    padding: 0 3vw 0 0;  /* padding 5vw because #about-me has 5vw */
 }
 
 #about-me p:nth-child(n+2) {
@@ -358,7 +370,7 @@ html,body {
     object-fit: cover;
     margin-top: 20px;
     width: 90vw;
-    height: 90vw; /* comment out if you want to keep the ratio */
+    height: 90vw;
     box-shadow: 1.25rem 1.375rem 4.75rem 0 rgba(0,0,0,.42)!important;
 }
 
@@ -395,16 +407,26 @@ html,body {
 @media only screen and (min-width: 750px) {
 
     #title {
+        width: unset;
         margin-left: 15vw;
         margin-top: -5px;
-        width: 45vw;
+    }
+
+    #title-text {
+        font-size: min(35px, 3.5vw);
+    }
+
+    .title {
+        font-size: 80px;
     }
 
     #navbar {
         height: 150px;
+        justify-content: space-between;
     }
 
     #menu {
+        width: unset;
         margin-right: 15vw;
     }
 
@@ -417,22 +439,6 @@ html,body {
         display: inline-block;
         right: unset;
         top: unset;
-    }
-
-    #bounce-arrow {
-        visibility: visible;
-        opacity: 1;
-        width: 40px;
-        height: 40px;
-        animation: bounce 3s infinite;
-        flex-grow: 0;
-    }
-
-    #bounce-arrow > svg {
-        width: 40px;
-        height: 40px;
-        opacity: 70%;
-        fill: var(--accent-color);
     }
 
     .menu-item:first-child {
@@ -472,28 +478,29 @@ html,body {
         align-items: center;
         width: 20px;
         top: unset;
+        right: unset;
     }
-    
+
     .flag {
         margin: 5px 0;
         width: 20px;
         cursor: pointer;
     }
-    
+
     .flag:not(:first-child){
         display: none;
     }
-    
+
     #flags:hover .flag {
         display: block;
         opacity: 0.5;
         margin-top: 5px;
     }
-    
+
     #flags:hover .flag:hover {
         opacity: 1;
     }
-    
+
     #container {
         display: flex;
         flex-direction: column;
@@ -501,7 +508,6 @@ html,body {
     }
 
     #intro {
-        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -509,21 +515,22 @@ html,body {
     }
 
     #intro-content {
-        flex-grow: 1;
+        margin-top: 0;
         justify-content: center;
-        align-items: flex-end;
+        align-items: center;
+        width: 100vw;
     }
 
     #intro-img {
         width: 45vw;
         margin-top: 3vh;
         margin-bottom: 15vh;
-        margin-left: 16.5vw;
+        margin-left: 30vw;
     }
 
     #author {
         text-align: left;
-        /* right: 52vw; */
+        right: 52vw;
         margin-top: -12vh;
         position: absolute;
         z-index: 2;
@@ -559,11 +566,10 @@ html,body {
     }
 
     #about-me img:first-child {
-        margin: 0;
         /* for vertical photo */
-        /* width: 60vw; */  
+        /* width: 60vw; */
         /* max-width: 500px; */
-        padding: 7px 20px 5px 0;
+        margin: 7px 20px 5px 0;
     }
 
     .p-separators {
@@ -592,7 +598,7 @@ html,body {
 
     .web-link:nth-child(odd) {
         flex-direction: row-reverse;
-    } 
+    }
 
     .web-link:nth-child(even) .web-text {
         padding-left: 0;
@@ -601,7 +607,7 @@ html,body {
     .web-title h4 {
         letter-spacing: -0.05em;
         font-weight: normal;
-        font-size: min(4vw, 45px);
+        font-size: min(3.5vw, 35px);
         margin-top: 2vw;
     }
 

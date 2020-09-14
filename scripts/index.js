@@ -1,7 +1,6 @@
 var subnav_active = false;
 var subnav_animated = false;
 var menu_scroll = false;
-var initial_scroll = false;
 var current_lang;
 
 const menuItems = $('.menu-item');
@@ -13,54 +12,46 @@ const lngs = ['pl', 'en', 'de'];
 
 $(document).ready(async function() {
     current_lang = navigator.language.substr(0, 2);
+
     setFlags();
+    resizing();
+
+    $("#content").delay(300).animate({ opacity: 1 }, 1000);
+    $('#bounce-arrow').data('is-hidden', false);
 
     await window.i18n.downloadTranslations();
     await window.i18n.changeLanguage(current_lang);
-  
-    $('#bounce-arrow').data('is-hidden', false);
-    initial_scroll = ($(window).scrollTop() < "50") ? false : true;
-
-    resizing();
 });
 
 $(window).resize(function(){
     if(!subnav_active) {
         if(isDesktop()) {
             subnav.fadeIn(600);
-            menuItems.css('right', '0');
-        } else {
-            menuItems.css('right', '-100px');
-        }
-    }
-    resizing();
-})
-
-$(window).scroll(function(){
-    if(!isDesktop()) {
-        if($(window).scrollTop() < "50") {
-            initial_scroll = false;
-        }
-        if(isVisible('#collection-txt', 200) && !initial_scroll) {
-            if(!menu_scroll) {
-                $('html').stop(true, false).animate({
-                    scrollTop: $('#collection-txt').offset().top - 50
-                }, 500, 'swing');
-            } initial_scroll = true;
+            $('#subnav > *').css('right', 'unset')
         }
     } else {
-        const arrow = $('#bounce-arrow');
-
-        if(arrow.data('is-hidden') === true && $(window).scrollTop() === 0) {
-          arrow.data('is-hidden', false);
-          arrow.animate({ opacity: 1 });
-        } else if(arrow.data('is-hidden') === false) {
-          arrow.data('is-hidden', true)
-          arrow.animate({ opacity: 0 });
+        if(isDesktop()) {
+            $('#subnav > *').css('right', 'unset');
+        } else {
+            $('#subnav > *').css('right', '0');
         }
+    }
+    setFlags();
+    resizing();
+});
+
+$(window).scroll(function(){
+    const arrow = $('#bounce-arrow');
+    if(arrow.data('is-hidden') === true && $(window).scrollTop() === 0) {
+        arrow.data('is-hidden', false);
+        arrow.animate({ opacity: 1 });
+    } else if(arrow.data('is-hidden') === false) {
+        arrow.data('is-hidden', true)
+        arrow.animate({ opacity: 0 });
     }
 });
 
+/* changing language when flag is clicked */
 $('.flag').click(async function() {
     current_lang = $(this).attr('data-lang');
 
@@ -71,7 +62,7 @@ $('.flag').click(async function() {
     });
 })
 
-/* scroll website when arrow is clicked */
+/* scroll website when the arrow is clicked */
 $('#bounce-arrow').click(function(){
     menu_scroll = true;
     $('html').animate({
@@ -92,7 +83,7 @@ $('.dropdown-menu').click(function() {
 
 /* scroll website when menu item is clicked */
 menuItems.click(function() {
-    menu_scroll = true;  initial_scroll = true;
+    menu_scroll = true;
 
     switch ($(this).attr("id")) {
         case "collection-a":
@@ -115,26 +106,26 @@ menuItems.click(function() {
     } if(!isDesktop()) hideSubnav();
 });
 
+/* change flags position based on a current language */
 function setFlags() {
     if(isDesktop()) {
         var remaining_lngs = lngs.filter(function(e){
             return e != current_lang;
         });
-    
+
         $('.flag').eq(0).attr({'src': `${imgPath}flag_${current_lang}.svg`, 'data-lang': current_lang});
         $('.flag').eq(1).attr({'src': `${imgPath}flag_${remaining_lngs[0]}.svg`, 'data-lang': remaining_lngs[0]});
         $('.flag').eq(2).attr({'src': `${imgPath}flag_${remaining_lngs[1]}.svg`, 'data-lang': remaining_lngs[1]});
     }
 }
 
+/* resizing math */
 function resizing() {
     if(isDesktop()) {
         introContent.height(introIMG.height() + 200);
-        introContent.width($('#title').width() + $('#menu').width() + 100);
         $('#author').css('right', introIMG.width() + 0.15*$(window).width() - 0.15*introIMG.width() + 10);
     } else {
         introContent.css('height', 'auto');
-        introContent.width($(window).width());
         $('#bounce-arrow').css('visibillity', 'hidden');
     }
 }
@@ -143,6 +134,7 @@ function resizing() {
 function showSubnav(delay) {
     subnav_animated = true; subnav.fadeIn(500);
     $('#flags').animate({right: '0px'});
+
     (menuItems).each(function(){
         $(this).delay(delay).animate({right: '0px'});
         delay += 70;
@@ -156,9 +148,9 @@ function showSubnav(delay) {
 /* hide menu */
 function hideSubnav(delay) {
     subnav_animated = true; subnav.fadeOut(500);
-    $('#flags').animate({right: '-100px'});
+    $('#flags').animate({right: '-130px'});
     menuItems.each(function(){
-        $(this).delay(delay).animate({right: '-100px'});
+        $(this).delay(delay).animate({right: '-130px'});
         delay += 70;
     }).promise().done(function(){
         subnav_animated = false;
@@ -167,6 +159,7 @@ function hideSubnav(delay) {
     subnav_active = false;
 }
 
+/* check if element is in viewport (optionally with a threshold) */
 function isVisible(elem, threshold) {
     var docViewBottom = $(window).scrollTop() + $(window).height();
     var elemTop = $(elem).offset().top;
