@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title data-key="title-bar">Zbigniew Wypijewski &mdash; Collection</title>
+    <meta name="theme-color" content="#FFFFFF" />
+    <meta charset="utf-8" name="viewport" content="shrink-to-fit=no, user-scalable=no, width=device-width, maximum-scale=1.0, initial-scale=1.0"/>
+    <meta property="og:title" content="Collection | Paintings for sale">
+    <meta property="og:image" content="img/index/main.jpg">
+    <meta property="og:description" content="Zbigniew Wypijewski — Collection">
+    <link rel="icon" type="image/png" href="img/icons/favicon.png"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/collectionStyle.css" type="text/css">
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/i18n.js" defer></script>
+    <script src="scripts/collection.js" defer></script>
+    <noscript><style> #content { opacity: 1 !important; } </style></noscript>
+  </head>
+  <body>
+    <div id="content">
+        <div id="navbar">
+            <div id="title">
+                <a href="index.html" id="title-text" data-key="collection-text">Collection</a>
+            </div>
+            <div id="menu">
+                <span class="dropdown-menu" id="menu-txt" data-key="menu-txt">MENU</span><img class="dropdown-menu" id="list-ico" src="img/icons/list-long.svg">
+                <div id="subnav">
+                    <a id="menu-rewarded" class="menu-item" data-key="menu-rewarded">AWARDED</a>
+                    <a id="menu-all" class="menu-item" data-key="menu-all">ALL</a>
+                    <div id="flags">
+                        <img src="img/icons/flag_pl.svg" data-lang="pl" class="flag">
+                        <img src="img/icons/flag_en.svg" data-lang="en" class="flag">
+                        <img src="img/icons/flag_de.svg" data-lang="de" class="flag">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="container">
+            <div id="images">
+                <div class="column" id="column-1"></div>
+                <div class="column" id="column-2"></div>
+                <div class="column" id="column-3"></div>
+                <div class="column" id="column-4"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('.column .img').click(function(){
+            console.log('cum');
+        });
+    </script>
+  </body>
+</html>

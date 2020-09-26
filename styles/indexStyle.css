@@ -482,7 +482,7 @@ html,body {
     }
 
     .flag {
-        margin: 5px 0;
+        margin: 4.5px 0;
         width: 20px;
         cursor: pointer;
     }
@@ -494,7 +494,7 @@ html,body {
     #flags:hover .flag {
         display: block;
         opacity: 0.5;
-        margin-top: 5px;
+        margin-top: 4.5px;
     }
 
     #flags:hover .flag:hover {
