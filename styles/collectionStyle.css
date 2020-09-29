@@ -14,7 +14,6 @@ html::-webkit-scrollbar {
 
 html, body {
   scrollbar-width: none;
-  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -132,7 +131,7 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
-.menu-item:hover:before {
+.menu-item:hover:before, .menu-item.hovered:before {
   visibility: visible;
   width: 100%;
 }
@@ -195,7 +194,9 @@ a {
       -ms-flex: 100%;
           flex: 100%;
   width: 100%;
-  padding: 0 2.5px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .outer-div {
@@ -258,6 +259,196 @@ a {
   border: 1px solid white;
 }
 
+#preview-background {
+  display: none;
+  background-color: white;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#close-icon {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#preview-container {
+  background-color: #FAFAFA;
+  border-radius: 5px;
+  padding: .5vh 3vw;
+  width: 90vw;
+  max-height: 90vh;
+  margin-top: 30px;
+  -webkit-box-shadow: 0.35rem 0.575rem 1.75rem 0 rgba(0, 0, 0, 0.32) !important;
+          box-shadow: 0.35rem 0.575rem 1.75rem 0 rgba(0, 0, 0, 0.32) !important;
+}
+
+#preview-img-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  text-align: center;
+  padding: 2vw 0;
+}
+
+#preview-img-title {
+  text-transform: uppercase;
+  width: 100%;
+  padding: 2vh 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+}
+
+#preview-img {
+  border-radius: 5px;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 35vh;
+  -webkit-filter: drop-shadow(0.25rem 0.375rem 0.75rem rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(0.25rem 0.375rem 0.75rem rgba(0, 0, 0, 0.3));
+}
+
+#form-container {
+  width: 100%;
+  padding: 2vh 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#form-title {
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  padding: 1vh 0;
+}
+
+#form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#form .textbox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1px;
+  position: relative;
+  background: #ccc;
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: .5vh;
+}
+
+#form .textbox:nth-child(2) {
+  margin-bottom: 5vh;
+}
+
+#form .textbox:last-child {
+  background: transparent;
+  margin-top: auto;
+}
+
+#form .input {
+  border: none;
+  border-radius: 4px;
+  padding: 10px 12px;
+  font-size: 15px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  outline: none;
+  z-index: 2;
+}
+
+#form .input::-webkit-input-placeholder {
+  font-family: "Poppins", sans-serif;
+}
+
+#form .input:-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+}
+
+#form .input::-ms-input-placeholder {
+  font-family: "Poppins", sans-serif;
+}
+
+#form .input::placeholder {
+  font-family: "Poppins", sans-serif;
+}
+
+#form .input:focus ~ .border {
+  width: 100%;
+  height: 100%;
+}
+
+#form .input[type=submit] {
+  background-color: rgba(212, 212, 212, 0.3);
+  cursor: pointer !important;
+}
+
+#form .input[type=submit]:not(:disabled) {
+  background-color: rgba(212, 212, 212, 0.7);
+}
+
+#form .input[type=submit]:not(:disabled):hover ~ .border, #form .input[type=submit]:not(:disabled):active ~ .border {
+  width: 100%;
+  height: 100%;
+}
+
+#form .border {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 0%;
+  background: #008000;
+  z-index: -1;
+  -webkit-transition: height 0.5s, width 0.5s 0.2s;
+  transition: height 0.5s, width 0.5s 0.2s;
+}
+
+#form textarea {
+  resize: none;
+  height: 20vh;
+}
+
 /* -----------> DESKTOP <------------ */
 @media only screen and (min-width: 750px) {
   #title {
@@ -312,7 +503,7 @@ a {
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
   }
-  .menu-item:hover:before {
+  .menu-item:hover:before, .menu-item.hovered:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
             transform: scaleX(1);

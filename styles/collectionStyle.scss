@@ -17,7 +17,6 @@ html::-webkit-scrollbar {
 
 html,body {
     scrollbar-width: none;
-    height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -117,7 +116,7 @@ a {
         transition: all 0.3s ease-in-out;
     }
 
-    &:hover {
+    &:hover, &.hovered {
         &:before {
             visibility: visible;
             width: 100%;
@@ -168,7 +167,7 @@ a {
 .column {
     flex: 100%;
     width: 100%;
-    padding: 0 2.5px;
+    height: fit-content;
 }
 
 .outer-div {
@@ -217,6 +216,157 @@ a {
     width: 80%;
     height: 80%;
     border: 1px solid white;
+}
+
+#preview-background {
+    display: none;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+#close-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#preview-container {
+    background-color: #FAFAFA;
+    border-radius: 5px;
+    padding: .5vh 3vw;
+    width: 90vw;
+    max-height: 90vh;
+    margin-top: 30px;
+    box-shadow: .35rem .575rem 1.75rem 0 rgba(0,0,0,.32)!important;
+}
+
+#preview-img-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    text-align: center;
+    padding: 2vw 0;
+}
+
+#preview-img-title {
+    text-transform: uppercase;
+    width: 100%;
+    padding: 2vh 0;
+    font-family: $sub-font;
+    font-size: 25px;
+}
+
+#preview-img {
+    border-radius: 5px;
+    width: 100%;
+    object-fit: contain;
+    max-height: 35vh;
+    filter: drop-shadow(.25rem .375rem .75rem rgba(0,0,0,.3));
+}
+
+#form-container {
+    width: 100%;
+    padding: 2vh 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#form-title {
+    text-align: center;
+    font-family: $sub-font;
+    font-size: 20px;
+    padding: 1vh 0;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+
+    .textbox {
+        display: flex;
+        flex-direction: column;
+        padding: 1px;
+        position: relative;
+        background: #ccc;
+        z-index: 1;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: .5vh;
+    }
+
+    .textbox:nth-child(2) {
+        margin-bottom: 5vh;
+    }
+
+    .textbox:last-child {
+        background: transparent;
+        margin-top: auto;
+    }
+
+    .input {
+        border: none;
+        border-radius: 4px;
+        padding: 10px 12px;
+        font-size: 15px;
+        transition: all 1s ease;
+        outline: none;
+        z-index: 2;
+
+        &::placeholder {
+            font-family: $sub-font;
+        }
+
+        &:focus {
+            &~.border {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        &[type=submit] {
+            background-color: rgba(212, 212, 212, 0.3);
+            cursor: pointer !important;
+
+            &:not(:disabled) {
+                background-color: rgba(212, 212, 212, .7);
+                &:hover, &:active {
+                    &~.border {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .border {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 0%;
+        background: #008000;
+        z-index: -1;
+        transition: height 0.5s, width 0.5s 0.2s;
+    }
+
+    textarea {
+        resize: none;
+        height: 20vh;
+    }
 }
 
 
@@ -278,7 +428,7 @@ a {
             transition: all 0.3s ease-in-out;
         }
 
-        &:hover{
+        &:hover, &.hovered {
             &:before {
                 visibility: visible;
                 transform: scaleX(1);

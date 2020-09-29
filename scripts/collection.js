@@ -2,15 +2,39 @@ var subnav_active = false;
 var subnav_animated = false;
 
 var current_lang;
+var current_scrollTop;
+var current_album = 'awarded';
+
+const album_awarded = 'PwSjiCw';
+const album_all = 'SSUYPd5'; 
+const albums = {};
+
 const imgPath = 'img/icons/';
 const lngs = ['pl', 'en', 'de'];
 const clientID = '084e31407b21fa0';
 
 $(window).on('load', async function(){
-    const album = await getImages();
-    changeAlbum(album);
+    albums.awarded = await getImages(album_awarded);
+    changeAlbum(current_album);
+    albums.all = await getImages(album_all);
 
+    $(document).on('click', '.overlay', function(){
+        const $img = $(this).parent().find('.img');
+        showPreview($img);
+    });
 
+    $('#close-icon').click(function(){
+        hidePreview();
+    });
+
+    $('.input').bind('click keydown keyup input', function(){
+        validateInputs()
+    });
+
+    $('.menu-item').click(function(){
+        const album = $(this).attr('id').substr(5);
+        changeAlbum(album);
+    });
 });
 
 $(document).ready(async function() {
@@ -39,6 +63,48 @@ $(window).resize(function(){
     setFlags();
 });
 
+function validateInputs() {
+    const email = $('.input').eq(0).val();
+    const message = $('.input').eq(1).val();
+
+    if(email != '' && message != '' && isEmail(email)) {
+        $('.input[type=submit]').removeAttr('disabled');
+    } else {
+        $('.input[type=submit]').attr('disabled', true);
+    }
+}
+
+function isEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
+
+function showPreview($img) {
+    const url = $img.attr('src');
+    const $container = $('#preview-background');
+    const $preview_img = $('#preview-img');
+    const $preview_title = $('#preview-img-title');
+    const title = ($img.attr('data-title') !== 'null') ? $img.attr('data-title') : " ";
+
+    $('#navbar').fadeOut(100);
+    $('#images').fadeOut(100);
+
+    $container.fadeIn(500);
+    $container.css('display', 'flex');
+    $('#form-attachment').attr('value', `<br><br><img src=${url}>`);
+    $preview_img.attr('src', url);
+    $preview_title.html(title);
+
+    current_scrollTop = $(window).scrollTop();
+}
+
+function hidePreview() {
+    $('#preview-background').fadeOut(100);
+    $('#images').fadeIn(500);
+    $('#navbar').fadeIn(100);
+    $(window).scrollTop(current_scrollTop);
+}
+
 /* changing language when flag is clicked */
 $('.flag').click(async function() {
     current_lang = $(this).attr('data-lang');
@@ -59,8 +125,8 @@ $('.dropdown-menu').click(function() {
     }
 });
 
-async function getImages() {
-    const result = await fetch(`https://api.imgur.com/3/album/SSUYPd5`, {
+async function getImages(album) {
+    const result = await fetch(`https://api.imgur.com/3/album/${album}`, {
         headers: {
             "Authorization": "Client-ID " + clientID,
         }       
@@ -74,11 +140,16 @@ async function getImages() {
     return data.data;
 }
 
-async function changeAlbum(album) {
-    const $container = $('#images');
+async function changeAlbum(albumName) {
+    current_album = albumName;
+    const album = albums[albumName];
+
     $(window).scrollTop(0);
 
+    $('.menu-item').removeClass('hovered');
+    $(`#menu-${current_album}`).addClass('hovered');
     $('.column').find('div').remove();
+    
 
     var index = 1;
     for (let image of album.images) {
@@ -111,6 +182,7 @@ async function changeAlbum(album) {
             }, 1000);
         });
 
+        $images = $('.overlay');
         index = (index < 4) ? index+1 : 1;
     }
 }

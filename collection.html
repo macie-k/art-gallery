@@ -25,7 +25,7 @@
             <div id="menu">
                 <span class="dropdown-menu" id="menu-txt" data-key="menu-txt">MENU</span><img class="dropdown-menu" id="list-ico" src="img/icons/list-long.svg">
                 <div id="subnav">
-                    <a id="menu-rewarded" class="menu-item" data-key="menu-rewarded">AWARDED</a>
+                    <a id="menu-awarded" class="menu-item" data-key="menu-awarded">AWARDED</a>
                     <a id="menu-all" class="menu-item" data-key="menu-all">ALL</a>
                     <div id="flags">
                         <img src="img/icons/flag_pl.svg" data-lang="pl" class="flag">
@@ -36,6 +36,33 @@
             </div>
         </div>
         <div id="container">
+            <div id="preview-background">
+                <img id="close-icon" src="img/icons/x.svg">
+                <div id="preview-container">
+                    <div id="preview-img-container">
+                        <div id="preview-img-title"></div>
+                        <img id="preview-img" src="img/collection/sample.jpg">
+                    </div>
+                    <div id="form-container">
+                        <div id="form-title">Interested in buying?</div>
+                        <form action="scripts/sendMail.php" method="post" id="form">
+                            <div class="textbox">
+                                <input class="input" placeholder="Email address" type="text" id="form-mail" name="mail">
+                                <div class="border"></div>
+                            </div>
+                            <div class="textbox">
+                                <textarea class="input" placeholder="Your message" name="message" id="form-message" cols="30" rows="10"></textarea>
+                                <div class="border"></div>
+                            </div>
+                            <div class="textbox">
+                                <input class="input" type="submit" value="Send" disabled>
+                                <div class="border"></div>
+                            </div>
+                            <input type=hidden id="form-attachment" name="attachment"></input>           
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div id="images">
                 <div class="column" id="column-1"></div>
                 <div class="column" id="column-2"></div>
@@ -44,10 +71,5 @@
             </div>
         </div>
     </div>
-    <script>
-        $('.column .img').click(function(){
-            console.log('cum');
-        });
-    </script>
   </body>
 </html>
