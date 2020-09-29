@@ -1,4 +1,9 @@
 <?php
+
+    // FOR THE EMAIL SERVICE TO WORK YOU NEED 'COMPOSER'
+    // RUN 'composer install' from the '/scripts' directory
+    // Then you can use emailing
+
     header("Location: ../collection.html"); 
 
     use PHPMailer\PHPMailer\Exception;
@@ -10,7 +15,7 @@
     $emailMessage= $_POST['message'];
     $emailImg = $_POST['attachment'];
 
-    $emailContent = $emailMessage.$emailImg;
+    $emailContent = $emailMessage.'<br><br><img src='.$emailImg.'>';
     require 'vendor/autoload.php';
 
     $mail = new PHPMailer(true);

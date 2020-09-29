@@ -91,7 +91,7 @@ function showPreview($img) {
 
     $container.fadeIn(500);
     $container.css('display', 'flex');
-    $('#form-attachment').attr('value', `<br><br><img src=${url}>`);
+    $('#form-attachment').attr('value', url);
     $preview_img.attr('src', url);
     $preview_title.html(title);
 
