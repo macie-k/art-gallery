@@ -15,9 +15,13 @@ const clientID = '084e31407b21fa0';
 
 $(window).on('load', async function(){
     albums.awarded = await getImages(album_awarded);
-    changeAlbum(current_album);
+    await changeAlbum(current_album);
     albums.all = await getImages(album_all);
 
+    setTimeout(() => {
+        adjustColumns();
+    }, 400);
+    
     $(document).on('click', '.overlay', function(){
         const $img = $(this).parent().find('.img');
         showPreview($img);
@@ -31,9 +35,12 @@ $(window).on('load', async function(){
         validateInputs()
     });
 
-    $('.menu-item').click(function(){
+    $('.menu-item').click(async function(){
         const album = $(this).attr('id').substr(5);
-        changeAlbum(album);
+        await changeAlbum(album);
+        setTimeout(() => {
+            adjustColumns();
+        }, 400);
     });
 });
 
@@ -48,6 +55,7 @@ $(document).ready(async function() {
 });
 
 $(window).resize(function(){
+    adjustColumns();
     if(!subnav_active) {
         if(isDesktop()) {
             $('#subnav').fadeIn(600);
@@ -150,7 +158,6 @@ async function changeAlbum(albumName) {
     $(`#menu-${current_album}`).addClass('hovered');
     $('.column').find('div').remove();
     
-
     var index = 1;
     for (let image of album.images) {
         const thumbUrl = `https://i.imgur.com/${image.id}l.jpg`;
@@ -174,6 +181,7 @@ async function changeAlbum(albumName) {
         $title.html(title);
 
         $img.on('load', async function() {
+            $(this).css('height', 'auto');
             setTimeout(() => {
                 $(this).animate({opacity: 1}, 200);
             }, 200);
@@ -182,8 +190,26 @@ async function changeAlbum(albumName) {
             }, 1000);
         });
 
-        $images = $('.overlay');
         index = (index < 4) ? index+1 : 1;
+    }
+}
+
+function adjustColumns() {
+    $('.column').css('margin-top', 'unset');
+    if(($(window).width() < 1200) && ($(window).width() > 750)) {
+        
+        const index = ($('#column-1').outerHeight() < $('#column-2').outerHeight()) ? 1 : 2;
+
+        const $aboveColumn = $(`#column-${index}`);
+        const $changeColumn = $(`#column-${index+2}`);
+        const $referenceColumn = $(`#column-${(index === 1) ? 4 : 3}`);
+
+        const aboveColumnTop = $aboveColumn.offset().top;
+        const aboveColumnHeight = $aboveColumn.outerHeight();
+
+        var referenceColumnTop = $referenceColumn.offset().top;
+
+        $changeColumn.css('margin-top', ((aboveColumnTop + aboveColumnHeight) - referenceColumnTop));
     }
 }
 
