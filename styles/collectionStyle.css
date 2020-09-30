@@ -638,7 +638,8 @@ a {
   }
   #form > .textbox:nth-child(2) {
     margin-top: 20px;
-    height: 70%;
+    margin-bottom: 0;
+    height: 60%;
   }
   #form > .textbox:nth-child(2) > textarea {
     height: 100%;
