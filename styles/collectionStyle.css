@@ -425,10 +425,10 @@ a {
 
 #form .input[type=submit] {
   background-color: rgba(212, 212, 212, 0.3);
-  cursor: pointer !important;
 }
 
 #form .input[type=submit]:not(:disabled) {
+  cursor: pointer !important;
   background-color: rgba(212, 212, 212, 0.7);
 }
 
