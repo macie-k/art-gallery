@@ -1,3 +1,8 @@
+# Content:
+  - [Home](https://github.com/emermacko/art-gallery#home)
+  - [Gallery](https://github.com/emermacko/art-gallery#gallery)
+  - [Preview](https://github.com/emermacko/art-gallery#preview)
+
 # Home
 ![home](https://user-images.githubusercontent.com/25122875/95852701-779b1c00-0d54-11eb-9c80-e7229e3d7fb5.png)
 
