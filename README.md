@@ -1,1 +1,8 @@
-![image](https://user-images.githubusercontent.com/25122875/95851927-3eae7780-0d53-11eb-9058-7e61e086bf3c.png)
+# Home
+![home](https://user-images.githubusercontent.com/25122875/95852701-779b1c00-0d54-11eb-9c80-e7229e3d7fb5.png)
+
+# Gallery
+![gallery](https://user-images.githubusercontent.com/25122875/95852448-12dfc180-0d54-11eb-9c8b-ba0923c6cc96.png)
+
+# Preview
+![preview](https://user-images.githubusercontent.com/25122875/95852560-3a368e80-0d54-11eb-886c-57f62ad02b01.png)
