@@ -1,2 +1,5 @@
-scripts/vendor/
-scripts/PHPMailer/
+src/scripts/vendor/
+src/scripts/PHPMailer/
+src/styles/*.map
+node_modules
+.cache

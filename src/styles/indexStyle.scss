@@ -1,29 +1,29 @@
 @font-face {
     font-family: 'droid-serif';
-    src: url("fonts/DroidSerif-Regular.ttf");
+    src: url('fonts/DroidSerif-Regular.ttf');
 }
 
-:root {
-    --bg-color: #F5F5F5;
-    --text-color: #0F0F0F;
-    --accent-color: #B89D4F;
+$bg-color: #f5f5f5;
+$text-color: #0f0f0f;
+$accent-color: #b89d4f;
 
-    --title-font: 'Playfair Display', serif;
-    --sub-font: 'Poppins', sans-serif;
-}
+$title-font: 'Playfair Display', serif;
+$sub-font: 'Poppins', sans-serif;
 
 * {
-  -ms-overflow-style: none;
-  user-select: none;
-  box-sizing: border-box;
+    -ms-overflow-style: none;
+    user-select: none;
+    box-sizing: border-box;
 }
 
-p, a, li {
+p,
+a,
+li {
     user-select: text;
 }
 
 html::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 a {
@@ -31,20 +31,21 @@ a {
     color: unset;
 }
 
-html,body {
+html,
+body {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
-    color: #2F2F2F;
-    background-color: var(--bg-color);
+    color: #2f2f2f;
+    background-color: $bg-color;
 }
 
 .title {
     text-align: center;
     font-weight: 400;
-    font-family: var(--title-font);
-    color: var(--text-color);
+    font-family: $title-font;
+    color: $text-color;
     letter-spacing: -4px;
     font-size: 60px;
 }
@@ -53,14 +54,14 @@ html,body {
     z-index: -100;
     opacity: 0;
     height: 100%;
-    background-color: var(--bg-color);
+    background-color: $bg-color;
 }
 
 #navbar {
     display: inline-flex;
     width: 100vw;
     height: 80px;
-    background-color: var(--bg-color);
+    background-color: $bg-color;
 }
 
 #menu {
@@ -89,7 +90,7 @@ html,body {
     width: 100vw;
     height: auto;
     display: inline-flex;
-    font-family: var(--title-font);
+    font-family: $title-font;
     font-weight: 700;
     font-size: min(35px, 7vw);
     margin-left: 10vw;
@@ -126,13 +127,13 @@ html,body {
 }
 
 .menu-item:before {
-    content: "";
+    content: '';
     position: absolute;
     width: 0;
     height: 1px;
     bottom: 0;
     right: 0;
-    background-color: #9F9F9F;
+    background-color: #9f9f9f;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
 }
@@ -146,7 +147,7 @@ html,body {
     position: relative;
     font-size: 12px;
     margin-bottom: 10px;
-    font-family: var(--sub-font);
+    font-family: $sub-font;
     font-weight: 200;
     right: -100px;
     display: table;
@@ -214,7 +215,7 @@ html,body {
     flex-shrink: 0;
     margin-top: 15vh;
     background-color: transparent;
-    box-shadow: 1.25rem 1.375rem 4.75rem 0 rgba(0,0,0,.42)!important;
+    box-shadow: 1.25rem 1.375rem 4.75rem 0 rgba(0, 0, 0, 0.42) !important;
 }
 
 #author {
@@ -238,11 +239,11 @@ html,body {
     width: 40px;
     height: 40px;
     opacity: 70%;
-    fill: var(--accent-color);
+    fill: $accent-color;
 }
 
 .separator:last-child {
-    border-left: 1px solid var(--accent-color);
+    border-left: 1px solid $accent-color;
 }
 
 .separators {
@@ -297,41 +298,41 @@ html,body {
     align-items: center;
 
     margin: 20px 0;
-    border: 1px solid var(--accent-color);
+    border: 1px solid $accent-color;
     cursor: pointer;
 
-    color: var(--accent-color);
-    font-family: var(--sub-font);
+    color: $accent-color;
+    font-family: $sub-font;
     font-weight: 100;
     font-size: 15px;
     text-transform: uppercase;
 
-    transition: .5s all;
+    transition: 0.5s all;
 }
 
 #collection-full:hover {
-    background-color: var(--accent-color);
+    background-color: $accent-color;
     color: white;
 }
 
 #about-me {
     width: 100vw;
-    font-family: var(--sub-font);
+    font-family: $sub-font;
     font-weight: 200;
     padding: 0 5vw;
-    background-color: var(--bg-color);
+    background-color: $bg-color;
 }
 
 #about-me img:first-child {
     /* for vertical photo */
     /* width: 80vw; */
-    /* margin: 0 5vw 3vh 5vw; */  /* margin 5vw because #about-me has 5vw */
+    /* margin: 0 5vw 3vh 5vw; */ /* margin 5vw because #about-me has 5vw */
     width: 15vw;
     min-width: 220px;
-    padding: 0 3vw 0 0;  /* padding 5vw because #about-me has 5vw */
+    padding: 0 3vw 0 0; /* padding 5vw because #about-me has 5vw */
 }
 
-#about-me p:nth-child(n+2) {
+#about-me p:nth-child(n + 2) {
     font-size: 18px;
     text-align: justify;
     text-indent: 40px;
@@ -371,7 +372,7 @@ html,body {
     margin-top: 20px;
     width: 90vw;
     height: 90vw;
-    box-shadow: 1.25rem 1.375rem 4.75rem 0 rgba(0,0,0,.42)!important;
+    box-shadow: 1.25rem 1.375rem 4.75rem 0 rgba(0, 0, 0, 0.42) !important;
 }
 
 .web-header {
@@ -381,31 +382,29 @@ html,body {
 }
 
 .web-date {
-    color: var(--accent-color);
+    color: $accent-color;
     display: inline;
-    font-family: var(--sub-font);
+    font-family: $sub-font;
     text-transform: uppercase;
     /* user-select: text; */
 }
 
 .web-date-line {
     height: 50%;
-    border-top: 1px solid var(--accent-color);
+    border-top: 1px solid $accent-color;
     width: 150px;
     margin-left: 20px;
 }
 
 .web-title h4 {
-    font-family: var(--title-font);
+    font-family: $title-font;
     letter-spacing: -0.05em;
     font-weight: normal;
     font-size: min(5vw, 30px);
 }
 
-
 /* -----------> DESKTOP <------------ */
 @media only screen and (min-width: 750px) {
-
     #title {
         width: unset;
         margin-left: 15vw;
@@ -430,7 +429,8 @@ html,body {
         margin-right: 15vw;
     }
 
-    #menu-txt, #list-ico {
+    #menu-txt,
+    #list-ico {
         display: none;
     }
 
@@ -455,13 +455,13 @@ html,body {
     }
 
     .menu-item:before {
-        content: "";
+        content: '';
         position: absolute;
         width: 100%;
         height: 1px;
         bottom: 0;
         left: 0;
-        background-color: #9F9F9F;
+        background-color: #9f9f9f;
         visibility: hidden;
         transform: scaleX(0);
         transition: all 0.3s ease-in-out;
@@ -487,7 +487,7 @@ html,body {
         cursor: pointer;
     }
 
-    .flag:not(:first-child){
+    .flag:not(:first-child) {
         display: none;
     }
 
@@ -540,7 +540,7 @@ html,body {
 
     #author p:last-child {
         margin-left: 3vw;
-        font-size: .8em;
+        font-size: 0.8em;
     }
 
     .separators {
@@ -618,12 +618,14 @@ html,body {
         max-height: 450px;
         max-width: 450px;
     }
-
 }
 
-
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
     40% {

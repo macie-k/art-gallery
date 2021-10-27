@@ -1,0 +1,39 @@
+{
+    "name": "art-gallery-template",
+    "version": "1.0.0",
+    "description": "![image](https://user-images.githubusercontent.com/25122875/91594040-858e0c80-e961-11ea-8631-4124e00dddca.png)",
+    "main": "index.js",
+    "scripts": {
+        "start": "parcel ./src/index.html",
+        "build": "del /q dist && parcel build ./src/* --public-url ./"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/emermacko/art-gallery.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/emermacko/art-gallery/issues"
+    },
+    "homepage": "https://github.com/emermacko/art-gallery#readme",
+    "prettier": {
+        "semi": true,
+        "singleQuote": true,
+        "tabWidth": 4,
+        "printWidth": 100
+    },
+    "browserslist": [
+        "last 1 Chrome version"
+    ],
+    "devDependencies": {
+        "@babel/core": "^7.14.6",
+        "@babel/plugin-proposal-class-properties": "^7.14.5",
+        "@babel/preset-env": "^7.14.7",
+        "cssnano": "^4.1.10",
+        "sass": "^1.32.8"
+    },
+    "dependencies": {
+        "jquery": "^3.6.0"
+    }
+}
